@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace DoubleList;
 
@@ -62,7 +63,7 @@ public class DoubleLinkedList<T> where T : IComparable<T>
                 Console.Write(" <=> ");
             current = current.Next;
         }
-        Console.WriteLine();    
+        Console.WriteLine();
     }
 
     public void ShowBackward()
@@ -82,8 +83,8 @@ public class DoubleLinkedList<T> where T : IComparable<T>
             current = current.Prev;
         }
         Console.WriteLine();
-
     }
+
     public void SortDescending()
     {
         if (head == null || head.Next == null)
@@ -97,9 +98,9 @@ public class DoubleLinkedList<T> where T : IComparable<T>
             current = current.Next;
         }
 
-        tempList.Sort((a, b) => b.CompareTo(a)); 
+        tempList.Sort((a, b) => b.CompareTo(a));
 
-        ClearList();
+        head = tail = null;
 
         foreach (var item in tempList)
         {
@@ -118,6 +119,7 @@ public class DoubleLinkedList<T> where T : IComparable<T>
 
         Console.WriteLine("List sorted in descending order.");
     }
+
     public void ShowModes()
     {
         Dictionary<T, int> counts = new();
@@ -290,18 +292,4 @@ public class DoubleLinkedList<T> where T : IComparable<T>
             ? $"All occurrences of {value} were removed."
             : $"{value} was not found.");
     }
-
-    public void ClearList()
-    {
-        if (head == null)
-        {
-            Console.WriteLine("The list is already empty.");
-            return;
-        }
-
-        head = null;
-        tail = null;
-        Console.WriteLine("The list has been completely cleared.");
-    }
 }
-

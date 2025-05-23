@@ -18,7 +18,6 @@ public class Program
             Console.WriteLine("7. Exists");
             Console.WriteLine("8. Remove one occurrence");
             Console.WriteLine("9. Remove all occurrences");
-            Console.WriteLine("10. Clear list");
             Console.WriteLine("0. Exit");
             Console.Write("Enter an option: ");
             if (int.TryParse(Console.ReadLine(), out option))
@@ -64,9 +63,6 @@ public class Program
                         Console.Write("Enter the element to remove all occurrences: ");
                         string elementToRemoveAll = Console.ReadLine() ?? string.Empty;
                         list.RemoveAll(elementToRemoveAll);
-                        break;
-                    case 10:
-                        list.ClearList();
                         break;
                     case 0:
                         Console.WriteLine("Exiting program...");
